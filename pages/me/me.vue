@@ -1,6 +1,6 @@
 <template>
 	<view class="">
-		这是个人页面嗷嗷
+		这是个人页面
 	</view>
 </template>
 
