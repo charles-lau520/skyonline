@@ -23,7 +23,7 @@
 			<!--渲染数据-->
 			<view class="single-poster" v-for="item in hotSuperHeroList">
 				<view class="poster-wapper">
-					<navigator open-type="navigate" v-bind:url="'../movie/movie?id='+item.movieId">
+					<navigator open-type="navigate" v-bind:url="'../movie/movie?id='+item.id">
 						<image class="poster" v-bind:src="item.cover"></image>
 					</navigator>
 					
@@ -64,15 +64,16 @@
 		</view>
 		<view class="page-block guess-u-like">
 			<view class="single-like-movie" v-for="(item,gIndex) in guessULikeList">
-				<navigator open-type="navigate" v-bind:url="'../movie/movie?id='+item.movieId">
+				<navigator open-type="navigate" v-bind:url="'../movie/movie?id='+item.id">
 					<image class="like-movie" v-bind:src="item.cover"></image>
 				</navigator>
+				<!-- 内容文字 start -->
 				<view class="movie-desc">
 					<view class="movie-title">
 						{{item.name}}
 					</view>
-					<!-- 自定义组件，向组件内传参数 -->
-					<trailerComp v-bind:innerscore="9" showNum="0"></trailerComp>
+					<!-- 自定义组件，向组件内传参数-->
+					<trailerComp v-bind:innerscore="item.score" showNum="0"></trailerComp>
 					<view class="movie-info">
 						{{item.basicInfo}}
 					</view>
@@ -80,7 +81,8 @@
 						{{item.originalName}}
 					</view>
 				</view>
-				<!-- ":data-" 获取自定义属性 -->
+				<!-- 内容文字 end-->
+				<!-- 点赞 ":data-" 获取自定义属性 -->
 				<view class="movie-oper" :data-gindexvalue="gIndex" @click="praiseMe">
 					<image src="../../static/icos/praise.png" class="praise-ico"></image>
 					<view class="praise-me">
@@ -249,7 +251,7 @@
 
 
 		},
-		//自定义组件-将自定义组件加入进来-第二步
+		//自定义组件-注册自定义组件-第二步
 		components: {
 			helloComp,
 			trailerComp

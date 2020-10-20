@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "影片详细页",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "trailer-comp": "/pages/components/trailer"
+  }
 }
