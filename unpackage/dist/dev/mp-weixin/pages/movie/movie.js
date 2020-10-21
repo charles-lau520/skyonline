@@ -173,10 +173,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   data: function data() {
     return {
-      item: {} };
+      item: {},
+      plotsPicsArray: [], //剧照列表
+      directoryArray: [], //导演列表
+      actorArray: [] //演员列表
+    };
 
   },
   onLoad: function onLoad(option) {var _this = this;
@@ -193,6 +210,35 @@ __webpack_require__.r(__webpack_exports__);
           _this.item = res.data.data;
           // console.log("trailer:"+this.item);
           // console.log(this.item.name+":"+this.item.score)
+          var plotsPicsArray = JSON.parse(item.plotPics);
+          console.log(plotsPicsArray);
+        }
+        _this.text = 'request success';
+      } });
+
+
+    //获取导演详细信息
+    uni.request({
+      url: this.serverURL + '/search/staff/' + itemid + '/1?qq=1004176677',
+      method: "POST",
+      success: function success(res) {
+        // console.log(this.serverURL + '/search/trailer/'+itemid+'?qq=1004176677');
+        if (res.data.status == 200) {
+          _this.directoryArray = res.data.data;
+          console.log("directoryArray:" + _this.directoryArray);
+        }
+        _this.text = 'request success';
+      } });
+
+    //获取演员详细信息
+    uni.request({
+      url: this.serverURL + '/search/staff/' + itemid + '/2?qq=1004176677',
+      method: "POST",
+      success: function success(res) {
+        // console.log(this.serverURL + '/search/trailer/'+itemid+'?qq=1004176677');
+        if (res.data.status == 200) {
+          _this.actorArray = res.data.data;
+          console.log("actorArray:" + _this.actorArray);
         }
         _this.text = 'request success';
       } });

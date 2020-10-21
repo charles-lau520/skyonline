@@ -152,16 +152,16 @@ var _default =
   //第三步：生命周期，自定义组件创建完成后被调用的逻辑内容
   created: function created() {
     var tempscore = 0;
-    console.log("innerscore:" + this.innerscore);
+    // console.log("innerscore:"+this.innerscore);
     if (this.innerscore != null && this.innerscore != undefined && this.innerscore) {
       tempscore = this.innerscore;
     };
-    console.log("innerscore:" + this.innerscore);
+    // console.log("innerscore:"+this.innerscore);
     var yellowScore = parseInt(tempscore / 2);
     var grayScore = 5 - yellowScore;
     this.yellowScore = yellowScore;
     this.grayScore = grayScore;
-    console.log(this.yellowScore + ":" + this.grayScore);
+    // console.log(this.yellowScore + ":" +this.grayScore)
   } };exports.default = _default;
 
 /***/ }),

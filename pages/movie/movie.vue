@@ -34,6 +34,19 @@
 			</view>
 		</view>
 		<!-- 影片基本信息 end -->
+		
+		<view class="line-wapper">
+			<view class="line"></view>
+		</view>
+		
+		<!-- 剧情介绍 start -->
+		<view class="plots-block">
+			<view class="plots-title">{{item.name}}</view>
+			<view class="plots-desc">{{item.plotDesc}}</view>
+			
+		</view>
+		
+		<!-- 剧情介绍 end -->
 	</view>
 </template>
 
@@ -44,7 +57,11 @@
 	export default {
 		data() {
 			return {
-				item:{}
+				item:{},
+				plotsPicsArray : [], //剧照列表
+				directoryArray : [], //导演列表
+				actorArray : [] //演员列表
+				
 			}
 		},
 		onLoad(option) {
@@ -61,6 +78,35 @@
 						this.item = res.data.data;
 						// console.log("trailer:"+this.item);
 						// console.log(this.item.name+":"+this.item.score)
+						var plotsPicsArray = JSON.parse(item.plotPics);
+						console.log(plotsPicsArray);
+					}
+					this.text = 'request success';
+				}
+			});
+			
+			//获取导演详细信息
+			uni.request({
+				url: this.serverURL + '/search/staff/'+itemid+'/1?qq=1004176677',
+				method: "POST",
+				success: (res) => {
+					// console.log(this.serverURL + '/search/trailer/'+itemid+'?qq=1004176677');
+					if (res.data.status == 200) {
+						this.directoryArray = res.data.data;
+						console.log("directoryArray:"+this.directoryArray);
+					}
+					this.text = 'request success';
+				}
+			});
+			//获取演员详细信息
+			uni.request({
+				url: this.serverURL + '/search/staff/'+itemid+'/2?qq=1004176677',
+				method: "POST",
+				success: (res) => {
+					// console.log(this.serverURL + '/search/trailer/'+itemid+'?qq=1004176677');
+					if (res.data.status == 200) {
+						this.actorArray = res.data.data;
+						console.log("actorArray:"+this.actorArray);
 					}
 					this.text = 'request success';
 				}
