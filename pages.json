@@ -26,10 +26,22 @@
         }
         ,{
             "path" : "pages/movie/movie",
+            "style" :{
+                "app-plus":{
+					"titleNView":{
+						"type":"transparent"
+					}
+				}
+			}
+        }
+        ,{
+            "path" : "pages/cover/cover",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "影片详细页",
-                "enablePullDownRefresh": false
+                "navigationBarTitleText": "预览",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor":"#000000",
+				"navigationBarTextStyle":"white"
             }
             
         }

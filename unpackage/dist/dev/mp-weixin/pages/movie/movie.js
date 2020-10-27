@@ -130,7 +130,40 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var trailerComp = function trailerComp() {__webpack_require__.e(/*! require.ensure | pages/components/trailer */ "pages/components/trailer").then((function () {return resolve(__webpack_require__(/*! ../components/trailer.vue */ 48));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var trailerComp = function trailerComp() {__webpack_require__.e(/*! require.ensure | pages/components/trailer */ "pages/components/trailer").then((function () {return resolve(__webpack_require__(/*! ../components/trailer.vue */ 56));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -200,6 +233,12 @@ __webpack_require__.r(__webpack_exports__);
     //获取上一个页面传入的值
     var itemid = option.id;
 
+    //通过API修改导航栏的属性
+    uni.setNavigationBarColor({
+      frontColor: "#FFFFFF",
+      backgroundColor: "#000000" });
+
+
     //获取预告片的详细信息
     uni.request({
       url: this.serverURL + '/search/trailer/' + itemid + '?qq=1004176677',
@@ -210,8 +249,8 @@ __webpack_require__.r(__webpack_exports__);
           _this.item = res.data.data;
           // console.log("trailer:"+this.item);
           // console.log(this.item.name+":"+this.item.score)
-          var plotsPicsArray = JSON.parse(item.plotPics);
-          console.log(plotsPicsArray);
+          _this.plotsPicsArray = JSON.parse(_this.item.plotPics);
+          // console.log(plotsPicsArray);
         }
         _this.text = 'request success';
       } });
@@ -225,7 +264,7 @@ __webpack_require__.r(__webpack_exports__);
         // console.log(this.serverURL + '/search/trailer/'+itemid+'?qq=1004176677');
         if (res.data.status == 200) {
           _this.directoryArray = res.data.data;
-          console.log("directoryArray:" + _this.directoryArray);
+          // console.log("1:directoryArray:"+this.directoryArray);
         }
         _this.text = 'request success';
       } });
@@ -238,14 +277,38 @@ __webpack_require__.r(__webpack_exports__);
         // console.log(this.serverURL + '/search/trailer/'+itemid+'?qq=1004176677');
         if (res.data.status == 200) {
           _this.actorArray = res.data.data;
-          console.log("actorArray:" + _this.actorArray);
+          // console.log("2:actorArray:"+this.actorArray);
         }
         _this.text = 'request success';
       } });
 
     // console.log(option.id)
   },
-  methods: {},
+  methods: {
+    lookMe: function lookMe(e) {
+      var imgIndex = e.currentTarget.dataset.imgindex;
+      uni.previewImage({
+        urls: this.plotsPicsArray,
+        current: this.plotsPicsArray[imgIndex] });
+
+    },
+    lookStaffs: function lookStaffs(e) {
+      var imgIndex = e.currentTarget.dataset.staffindex;
+      // 拼接导演和演员的数组，成为一个新数组
+      var newstaffArray = [];
+      newstaffArray = newstaffArray.concat(this.directoryArray).concat(this.actorArray);
+      var urls = [];
+      // console.log(newstaffArray);
+      // 获得新数组里对象中的图片地址，并放入到新的地址数组中国
+      for (var i = 0; i < newstaffArray.length; i++) {
+        urls.push(newstaffArray[i].photo);
+      }
+      // console.log(urls);
+      uni.previewImage({
+        urls: urls,
+        current: urls[imgIndex] });
+
+    } },
 
 
   //自定义组件-将自定义组件加入进来-第二步

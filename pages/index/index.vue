@@ -121,7 +121,7 @@
 		onUnload() {
 			//页面卸载的时候清除动画数据
 			this.animationData = {},
-				animationDataArr = [{}, {}, {}, {}, {}]
+			animationDataArr = [{}, {}, {}, {}, {}]
 		},
 		//仅对猜你喜欢栏目进行刷新
 		onPullDownRefresh() {
@@ -152,7 +152,7 @@
 			// 		me.text = 'request success';
 			// 	}
 			// })
-			//使用箭头函数不需要提前定义this对象。
+	//********使用箭头函数不需要提前定义this对象。
 			uni.request({
 				//第一种方式调取全局属性
 				//url:  serverURL + '/index/carousel/list?qq=1004176677',

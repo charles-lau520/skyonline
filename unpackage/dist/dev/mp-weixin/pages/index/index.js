@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var helloComp = function helloComp() {__webpack_require__.e(/*! require.ensure | pages/components/helloComp */ "pages/components/helloComp").then((function () {return resolve(__webpack_require__(/*! ../components/helloComp.vue */ 41));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var trailerComp = function trailerComp() {__webpack_require__.e(/*! require.ensure | pages/components/trailer */ "pages/components/trailer").then((function () {return resolve(__webpack_require__(/*! ../components/trailer.vue */ 48));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var helloComp = function helloComp() {__webpack_require__.e(/*! require.ensure | pages/components/helloComp */ "pages/components/helloComp").then((function () {return resolve(__webpack_require__(/*! ../components/helloComp.vue */ 49));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var trailerComp = function trailerComp() {__webpack_require__.e(/*! require.ensure | pages/components/trailer */ "pages/components/trailer").then((function () {return resolve(__webpack_require__(/*! ../components/trailer.vue */ 56));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -289,7 +289,7 @@ var _default = {
     // 		me.text = 'request success';
     // 	}
     // })
-    //使用箭头函数不需要提前定义this对象。
+    //********使用箭头函数不需要提前定义this对象。
     uni.request({
       //第一种方式调取全局属性
       //url:  serverURL + '/index/carousel/list?qq=1004176677',
