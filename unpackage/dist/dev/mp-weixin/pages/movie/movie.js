@@ -279,26 +279,35 @@ __webpack_require__.r(__webpack_exports__);
       } });
 
     // console.log(option.id)
-  },
-  //分享，仅仅限于小程序用
-  onShareAppMessage: function onShareAppMessage(res) {
-    debugger;
-    var me = this;
-    console.log(me);
-    // 如果 from 值是 button，则 target 是触发这次转发事件的 button，否则为 undefined
-    if (res.from === 'button') {// 来自页面内分享按钮
-      console.log("button");
-      console.log(res.target);
-    }
-    if (res.from === 'menu') {// 来自页面内分享按钮
-      console.log("menu");
-      console.log(res.from);
-    }
-    return {
-      title: me.item.name,
-      path: '../movie/movie?id=' + me.item.id };
+    /*分享方式一：适用于微信小程序，利用API中转发函数
+    注意事项
+    "shareAppMessage"表示“发送给朋友”按钮，"shareTimeline"表示“分享到朋友圈”按钮
+    显示“分享到朋友圈”按钮时必须同时显示“发送给朋友”按钮，显示“发送给朋友”按钮时则允许不显示“分享到朋友圈”按钮
+    */
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline'] });
 
   },
+  //分享方式二：仅仅限于小程序用
+  // onShareAppMessage(res) {
+  // 	debugger;
+  // 	var me = this;
+  // 	console.log(me);
+  // 	// 如果 from 值是 button，则 target 是触发这次转发事件的 button，否则为 undefined
+  // 	if (res.from === 'button') { // 来自页面内分享按钮
+  // 		console.log("button");
+  // 		console.log(res.target)
+  // 	}
+  // 	if (res.from === 'menu') { // 来自页面内分享按钮
+  // 		console.log("menu");
+  // 		console.log(res.from)
+  // 	}
+  // 	return {
+  // 		title: me.item.name,
+  // 		path: '../movie/movie?id=' + me.item.id,
+  // 	}
+  // },
   methods: {
     lookMe: function lookMe(e) {
       var imgIndex = e.currentTarget.dataset.imgindex;
