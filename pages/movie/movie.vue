@@ -53,15 +53,12 @@
 			<view class="plots-title">演职人员</view>
 			<scroll-view scroll-x class="scroll-list">
 				<view class="actor-wapper" v-for="(item,staffIndex) in directoryArray">
-					<image v-bind:src="item.photo" 
-					class="single-image" mode="aspectFill" @click="lookStaffs" :data-staffIndex="staffIndex"></image>
+					<image v-bind:src="item.photo" class="single-image" mode="aspectFill" @click="lookStaffs" :data-staffIndex="staffIndex"></image>
 					<view class="actor-name">{{item.name}}</view>
 					<view class="actor-role">{{item.actName}}</view>
 				</view>
 				<view class="actor-wapper" v-for="(item,actorIndex) in actorArray">
-					<image v-bind:src="item.photo" 
-					class="single-image" mode="aspectFill" 
-					@click="lookStaffs" :data-staffIndex="actorIndex + directoryArray.length"></image>
+					<image v-bind:src="item.photo" class="single-image" mode="aspectFill" @click="lookStaffs" :data-staffIndex="actorIndex + directoryArray.length"></image>
 					<view class="actor-name">{{item.name}}</view>
 					<view class="actor-role">{{item.actName}}</view>
 				</view>
@@ -73,9 +70,8 @@
 		<view class="scroll-block">
 			<view class="plots-title">剧照</view>
 			<scroll-view scroll-x class="scroll-list">
-				<image v-for="(item,index) in plotsPicsArray" 
-				v-bind:src="item" class="plot-image" mode="aspectFill" 
-				@click="lookMe" :data-imgIndex="index"></image>
+				<image v-for="(item,index) in plotsPicsArray" v-bind:src="item" class="plot-image" mode="aspectFill" @click="lookMe"
+				 :data-imgIndex="index"></image>
 			</scroll-view>
 		</view>
 		<!-- 剧照 end -->
@@ -100,11 +96,11 @@
 		onLoad(option) {
 			//获取上一个页面传入的值
 			var itemid = option.id;
-			
+
 			//通过API修改导航栏的属性
 			uni.setNavigationBarColor({
-				frontColor:"#FFFFFF",
-				backgroundColor:"#000000"
+				frontColor: "#FFFFFF",
+				backgroundColor: "#000000"
 			})
 
 			//获取预告片的详细信息
@@ -152,12 +148,31 @@
 			});
 			// console.log(option.id)
 		},
+		//分享，仅仅限于小程序用
+		onShareAppMessage(res) {
+			debugger;
+			var me = this;
+			console.log(me);
+			// 如果 from 值是 button，则 target 是触发这次转发事件的 button，否则为 undefined
+			if (res.from === 'button') { // 来自页面内分享按钮
+				console.log("button");
+				console.log(res.target)
+			}
+			if (res.from === 'menu') { // 来自页面内分享按钮
+				console.log("menu");
+				console.log(res.from)
+			}
+			return {
+				title: me.item.name,
+				path: '../movie/movie?id=' + me.item.id,
+			}
+		},
 		methods: {
 			lookMe(e) {
 				var imgIndex = e.currentTarget.dataset.imgindex;
 				uni.previewImage({
-					urls:this.plotsPicsArray,
-					current:this.plotsPicsArray[imgIndex]
+					urls: this.plotsPicsArray,
+					current: this.plotsPicsArray[imgIndex]
 				})
 			},
 			lookStaffs(e) {
@@ -168,13 +183,13 @@
 				var urls = [];
 				// console.log(newstaffArray);
 				// 获得新数组里对象中的图片地址，并放入到新的地址数组中国
-				for (var i=0;i<newstaffArray.length;i++) {
+				for (var i = 0; i < newstaffArray.length; i++) {
 					urls.push(newstaffArray[i].photo)
 				}
 				// console.log(urls);
 				uni.previewImage({
-					urls : urls,
-					current:urls[imgIndex]
+					urls: urls,
+					current: urls[imgIndex]
 				})
 			}
 
