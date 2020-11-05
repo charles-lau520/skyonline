@@ -28,8 +28,20 @@
             "path" : "pages/movie/movie",
             "style" :{
                 "app-plus":{
+					// 在 titleNView 配置 buttons 后，监听按钮的点击事件，
+					// vue 页面及 nvue 的weex编译模式参考：uni.onNavigationBarButtonTap
 					"titleNView":{
-						"type":"transparent"
+						"type":"transparent",
+						"buttons":[{
+							"type":"share"
+						}
+						// {
+						// 	"type":"home"
+						// },
+						// {
+						// 	"type":"forward"
+						// }
+						]
 					}
 				}
 			}

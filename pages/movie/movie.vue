@@ -2,7 +2,7 @@
 	<view class="page">
 		<!-- 视频播放 start -->
 		<view class="player">
-			<video v-bind:src="item.trailer" v-bind:poster="item.poster" controls="true"></video>
+			<video id="video" v-bind:src="item.trailer" v-bind:poster="item.poster" controls="true"></video>
 		</view>
 		<!-- 视频播放 end -->
 
@@ -93,6 +93,22 @@
 
 			}
 		},
+		// 页面初次渲染完成，获得视频上下文对象
+		onReady:function(res){
+			this.videoContext = uni.createVideoContext("video");
+			console.log(this.videoContext)
+		},
+		onHide:function(res){
+			//console.log(res);
+			this.videoContext.pause();
+		},
+		onShow:function(res){
+			console.log(res);
+			if(this.videoContext != null){
+				console.log("play");
+				this.videoContext.play();
+			}
+		},
 		onLoad(option) {
 			//获取上一个页面传入的值
 			var itemid = option.id;
@@ -157,11 +173,49 @@
 				menus: ['shareAppMessage', 'shareTimeline']
 			})
 		},
-		//分享方式二：仅仅限于小程序用
-		// onShareAppMessage(res) {
-		// 	debugger;
-		// 	var me = this;
-		// 	console.log(me);
+		// 微信小程序:监听用户点击右上角转发到朋友圈
+		onShareTimeline: function(e) {
+			console.log("监听用户点击右上角转发到朋友圈");
+		},
+		//监听原生标题栏按钮点击事件，参数为Object,APP H5
+		/**
+		 * 需要注意的是：在manifest.jso需要配置微信share的appID
+		 * manifest.json->APP模块配置->Share(分享)->微信分享->appid
+		 */
+		onNavigationBarButtonTap: function(e) {
+			// console.log(e);
+			// e的返回格式为json对象：{"text":"测试","index":0}
+			var trailerInfo = this.item;
+			var trailerId = trailerInfo.id;
+			var trailerName = trailerInfo.name;
+			var cover = trailerInfo.cover;
+			var poster = trailerInfo.poster;
+			
+			if (e.type == "share") {
+				console.log(e.type)
+				uni.share({
+					provider: "weixin",
+					scene: "WXSceneSession",
+					type: 0,
+					href: "http://localhost:8080/#/pages/movie/movie?id="+trailerId,
+					title: "NEXT超英预告:《"+trailerName+"》",
+					summary: "NEXT超英预告:《"+trailerName+"》",
+					imageUrl: cover,
+					success: function(res) {
+						console.log("success:" + JSON.stringify(res));
+					},
+					fail: function(err) {
+						console.log("fail:" + JSON.stringify(err));
+					}
+				});
+			}
+		},
+
+		// 分享方式二：行仅仅限于小程序用
+		// onShareAppMessage:function(res) {
+		// 	// debugger;
+		// 	// var me = this;
+		// 	console.log(this.item);
 		// 	// 如果 from 值是 button，则 target 是触发这次转发事件的 button，否则为 undefined
 		// 	if (res.from === 'button') { // 来自页面内分享按钮
 		// 		console.log("button");
@@ -172,8 +226,8 @@
 		// 		console.log(res.from)
 		// 	}
 		// 	return {
-		// 		title: me.item.name,
-		// 		path: '../movie/movie?id=' + me.item.id,
+		// 		title: this.item.name,
+		// 		path: '../movie/movie?id=' + this.item.id,
 		// 	}
 		// },
 		methods: {

@@ -46,6 +46,10 @@
 					}
 				})
 		},
+		onPageScroll:function(e){
+			console.log("监听页面滚动，参数为Object"),
+			console.log(e.scrollTop)
+		},
 		// 页面滚动到底部的事件（不是scroll-view滚到底），常用于下拉下一页数据
 		onReachBottom() {
 			// console.log("onReachBottom")
