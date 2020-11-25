@@ -1,3 +1,4 @@
+
 <template>
 	<view>
 		<form @submit="formSubmit">
@@ -16,15 +17,29 @@
 			</view>
 
 			<button type="primary" form-type="submit" style="margin-top: 60upx;width: 90%;">注册/登录</button>
+			<!-- 消息提示 -->
+			<uni-popup ref="popupMessage" type="message">
+				<uni-popup-message :type="msgType" :message="message" :duration="2000"></uni-popup-message>
+			</uni-popup>
 		</form>
 	</view>
 </template>
 
 <script>
+	import uniPopupMessage from '../../components/uni-popup/uni-popup-message.vue'
+	import uniPopupDialog from '../../components/uni-popup/uni-popup-dialog.vue'
+	import uniPopupShare from '../../components/uni-popup/uni-popup-share.vue'
 	export default {
+		components: {
+			uniPopupMessage,
+			uniPopupDialog,
+			uniPopupShare
+		},
 		data() {
 			return {
 				test:"test",
+				msgType : "",
+				message : "",
 				tempUserinfo : {
 					id:"190228AP5CBB7TR4",
 					username : "test",
@@ -36,12 +51,19 @@
 					appWeiboUid : "",
 					sex : "",
 					birthday : "1900-01-01",
-					faceImage : "",
+					faceImage : "../../static/icos/default-face.png",
 					isCertified : 0,
 					registTime : "2019-02-28T07:01:02.030+0000",
 					userUniqueToken : "4c300288-74e0-4513-835c-c019b9cfc411"
 				}
 			}
+		},
+		onReady:function(){
+			// 页面打开自动打开对话框
+			// console.log(this.msgType),
+			this.msgType = 'success',
+			this.message = "用户名:test,密码:test",
+			this.$refs.popupMessage.open()
 		},
 		methods: {
 			formSubmit: function(e){
@@ -51,8 +73,8 @@
 				var password = e.detail.value.password;
 				console.log(username+":"+password);
 				// 由于接口调用失败，临时模拟登陆信息
-				if(username != null && username.equals("") && password != null && password.equals("")){
-					if(this.tempUserinfo.username.equals(username) && this.tempUserinfo.password.equals(password)){
+				if(username != null && username != "" && password != null && password != ""){
+					if(this.tempUserinfo.username == username && this.tempUserinfo.password == password){
 						// 保存为全局变量
 						uni.setStorageSync("globalUser",this.tempUserinfo);
 						// 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。
@@ -61,8 +83,14 @@
 							url:"../me/me"
 						})
 					}else{
-						
+						this.msgType = 'error',
+						this.message = "错误信息:用户名:test,密码:test",
+						this.$refs.popupMessage.open()
 					}
+				}else{
+					this.msgType = 'error',
+					this.message = "错误信息:用户名或密码不能为空！！！",
+					this.$refs.popupMessage.open()
 				}
 				/*
 				uni.request({

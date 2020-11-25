@@ -10,11 +10,12 @@
 			<!-- ***************************************** -->
 			<view class="info-wapper" v-if="userLogin">
 				<view class="nickname">
-					NEXT 学院
+					{{userinfo.nickname}}
 				</view>
-				<view class="nav-info"></view>
+				<view class="nav-info">ID:{{userinfo.id}}</view>
 			</view>
 			<view v-else>
+				<!-- <navigator url="../registLogin/registLogin"> -->
 				<navigator url="../registLogin/registLogin">
 					<view class="nickname regist-login">
 						注册/登陆

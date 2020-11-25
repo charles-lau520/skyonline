@@ -92,7 +92,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
+var components = {
+  uniPopup: function() {
+    return Promise.all(/*! import() | components/uni-popup/uni-popup */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-popup/uni-popup")]).then(__webpack_require__.bind(null, /*! @/components/uni-popup/uni-popup.vue */ 81))
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -130,33 +134,48 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniPopupMessage = function uniPopupMessage() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup-message */ "components/uni-popup/uni-popup-message").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-popup/uni-popup-message.vue */ 90));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopupDialog = function uniPopupDialog() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup-dialog */ "components/uni-popup/uni-popup-dialog").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-popup/uni-popup-dialog.vue */ 97));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uniPopupShare = function uniPopupShare() {__webpack_require__.e(/*! require.ensure | components/uni-popup/uni-popup-share */ "components/uni-popup/uni-popup-share").then((function () {return resolve(__webpack_require__(/*! ../../components/uni-popup/uni-popup-share.vue */ 104));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
+  components: {
+    uniPopupMessage: uniPopupMessage,
+    uniPopupDialog: uniPopupDialog,
+    uniPopupShare: uniPopupShare },
+
   data: function data() {
     return {
       test: "test",
+      msgType: "",
+      message: "",
       tempUserinfo: {
         id: "190228AP5CBB7TR4",
         username: "test",
@@ -168,12 +187,19 @@ var _default =
         appWeiboUid: "",
         sex: "",
         birthday: "1900-01-01",
-        faceImage: "",
+        faceImage: "../../static/icos/default-face.png",
         isCertified: 0,
         registTime: "2019-02-28T07:01:02.030+0000",
         userUniqueToken: "4c300288-74e0-4513-835c-c019b9cfc411" } };
 
 
+  },
+  onReady: function onReady() {
+    // 页面打开自动打开对话框
+    // console.log(this.msgType),
+    this.msgType = 'success',
+    this.message = "用户名:test,密码:test",
+    this.$refs.popupMessage.open();
   },
   methods: {
     formSubmit: function formSubmit(e) {
@@ -183,8 +209,8 @@ var _default =
       var password = e.detail.value.password;
       console.log(username + ":" + password);
       // 由于接口调用失败，临时模拟登陆信息
-      if (username != null && username.equals("") && password != null && password.equals("")) {
-        if (this.tempUserinfo.username.equals(username) && this.tempUserinfo.password.equals(password)) {
+      if (username != null && username != "" && password != null && password != "") {
+        if (this.tempUserinfo.username == username && this.tempUserinfo.password == password) {
           // 保存为全局变量
           uni.setStorageSync("globalUser", this.tempUserinfo);
           // 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。
@@ -193,8 +219,14 @@ var _default =
             url: "../me/me" });
 
         } else {
-
+          this.msgType = 'error',
+          this.message = "错误信息:用户名:test,密码:test",
+          this.$refs.popupMessage.open();
         }
+      } else {
+        this.msgType = 'error',
+        this.message = "错误信息:用户名或密码不能为空！！！",
+        this.$refs.popupMessage.open();
       }
       /*
         uni.request({
