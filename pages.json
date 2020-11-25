@@ -21,7 +21,13 @@
         {
             "path" : "pages/me/me",
             "style" : {
-				"navigationBarTitleText":"个人空间"
+				"navigationBarTitleText":"个人空间",
+				"app-plus":{
+					"titleNView":false	//禁用导航啦
+				},
+				"navigationBarTextStyle": "white",
+				"navigationBarTitleText": "我的",
+				"navigationBarBackgroundColor": "#ffd655"
 			}
         }
         ,{
@@ -54,6 +60,15 @@
                 "enablePullDownRefresh": false,
 				"navigationBarBackgroundColor":"#000000",
 				"navigationBarTextStyle":"white"
+            }
+            
+        }
+        ,{
+            "path" : "pages/registLogin/registLogin",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
             }
             
         }

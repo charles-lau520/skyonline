@@ -47,7 +47,10 @@
 			</view>
 			<!--渲染数据-->
 			<view class="hot-movies page-block">
-				<video class="" v-for="item in hotTrailerList" v-bind:src="item.trailer" v-bind:poster="item.poster" class="hot-movies-single"></video>
+				<video v-bind:id="item.id" :data-playingindex="item.id" @play="myIsPlaying"
+				v-for="item in hotTrailerList" v-bind:src="item.trailer" 
+				v-bind:poster="item.poster" class="hot-movies-single">
+				</video>
 			</view>
 		</view>
 
@@ -114,8 +117,15 @@
 				hotTrailerList: [], //热门预告片
 				guessULikeList: [], //猜你喜欢
 				animationData: {},
-				animationDataArr: [{}, {}, {}, {}, {}]
+				animationDataArr: [{}, {}, {}, {}, {}],
+				videoContext : ""
 
+			}
+		},
+		onHide:function(){
+			if(this.videoContext != null){
+				console.log(this.videoContext);
+				this.videoContext.pause();
 			}
 		},
 		onUnload() {
@@ -203,6 +213,24 @@
 			this.refresh();
 		},
 		methods: {
+			// 视频控制，播放一个视频的时候，需要暂停其他正在播放的视频
+			myIsPlaying: function(e){
+				var id = "";
+				if(e!=null){
+					id = e.currentTarget.dataset.playingindex;
+					this.videoContext = uni.createVideoContext(id);
+				}
+				var hotTrailerList = this.hotTrailerList;
+				for (var i = 0;i < hotTrailerList.length;i++) {
+					var tempid = hotTrailerList[i].id;
+					if(tempid != id){
+						uni.createVideoContext(tempid).pause();
+					}
+				}
+				// console.log("meIsplaying:"+id);
+				// console.log(this.courselist);
+				
+			},
 			refresh() {
 				//猜你喜欢
 				uni.showLoading({ //显示loading加载

@@ -1,4 +1,6 @@
 {
-  "navigationBarTitleText": "个人空间",
+  "navigationBarTitleText": "我的",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#ffd655",
   "usingComponents": {}
 }

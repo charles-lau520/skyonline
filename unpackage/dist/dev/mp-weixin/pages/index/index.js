@@ -1,6 +1,31 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/index/index"],{
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/index/index"],[
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */
+/*!**********************************************************************************************!*\
+  !*** /Users/admin/Documents/study/uniapp/skyonline/main.js?{"page":"pages%2Findex%2Findex"} ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-/***/ 12:
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index.vue */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_index.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
+
+/***/ }),
+/* 12 */
 /*!***************************************************************************!*\
   !*** /Users/admin/Documents/study/uniapp/skyonline/pages/index/index.vue ***!
   \***************************************************************************/
@@ -40,8 +65,7 @@ component.options.__file = "pages/index/index.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
-
-/***/ 13:
+/* 13 */
 /*!**********************************************************************************************************!*\
   !*** /Users/admin/Documents/study/uniapp/skyonline/pages/index/index.vue?vue&type=template&id=57280228& ***!
   \**********************************************************************************************************/
@@ -62,8 +86,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-
-/***/ 14:
+/* 14 */
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/admin/Documents/study/uniapp/skyonline/pages/index/index.vue?vue&type=template&id=57280228& ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -89,8 +112,7 @@ render._withStripped = true
 
 
 /***/ }),
-
-/***/ 15:
+/* 15 */
 /*!****************************************************************************************************!*\
   !*** /Users/admin/Documents/study/uniapp/skyonline/pages/index/index.vue?vue&type=script&lang=js& ***!
   \****************************************************************************************************/
@@ -105,8 +127,7 @@ __webpack_require__.r(__webpack_exports__);
  /* harmony default export */ __webpack_exports__["default"] = (_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
-
-/***/ 16:
+/* 16 */
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/admin/Documents/study/uniapp/skyonline/pages/index/index.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -114,7 +135,10 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var helloComp = function helloComp() {__webpack_require__.e(/*! require.ensure | pages/components/helloComp */ "pages/components/helloComp").then((function () {return resolve(__webpack_require__(/*! ../components/helloComp.vue */ 49));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var trailerComp = function trailerComp() {__webpack_require__.e(/*! require.ensure | pages/components/trailer */ "pages/components/trailer").then((function () {return resolve(__webpack_require__(/*! ../components/trailer.vue */ 56));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var helloComp = function helloComp() {__webpack_require__.e(/*! require.ensure | pages/components/helloComp */ "pages/components/helloComp").then((function () {return resolve(__webpack_require__(/*! ../components/helloComp.vue */ 59));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var trailerComp = function trailerComp() {__webpack_require__.e(/*! require.ensure | pages/components/trailer */ "pages/components/trailer").then((function () {return resolve(__webpack_require__(/*! ../components/trailer.vue */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+
+
+
 
 
 
@@ -230,9 +254,16 @@ var _default = {
       hotTrailerList: [], //热门预告片
       guessULikeList: [], //猜你喜欢
       animationData: {},
-      animationDataArr: [{}, {}, {}, {}, {}] };
+      animationDataArr: [{}, {}, {}, {}, {}],
+      videoContext: "" };
 
 
+  },
+  onHide: function onHide() {
+    if (this.videoContext != null) {
+      console.log(this.videoContext);
+      this.videoContext.pause();
+    }
   },
   onUnload: function onUnload() {
     //页面卸载的时候清除动画数据
@@ -319,6 +350,24 @@ var _default = {
     this.refresh();
   },
   methods: {
+    // 视频控制，播放一个视频的时候，需要暂停其他正在播放的视频
+    myIsPlaying: function myIsPlaying(e) {
+      var id = "";
+      if (e != null) {
+        id = e.currentTarget.dataset.playingindex;
+        this.videoContext = uni.createVideoContext(id);
+      }
+      var hotTrailerList = this.hotTrailerList;
+      for (var i = 0; i < hotTrailerList.length; i++) {
+        var tempid = hotTrailerList[i].id;
+        if (tempid != id) {
+          uni.createVideoContext(tempid).pause();
+        }
+      }
+      // console.log("meIsplaying:"+id);
+      // console.log(this.courselist);
+
+    },
     refresh: function refresh() {var _this2 = this;
       //猜你喜欢
       uni.showLoading({ //显示loading加载
@@ -374,8 +423,7 @@ var _default = {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-
-/***/ 17:
+/* 17 */
 /*!************************************************************************************************************!*\
   !*** /Users/admin/Documents/study/uniapp/skyonline/pages/index/index.vue?vue&type=style&index=0&lang=css& ***!
   \************************************************************************************************************/
@@ -390,8 +438,7 @@ __webpack_require__.r(__webpack_exports__);
  /* harmony default export */ __webpack_exports__["default"] = (_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_dist_cjs_js_ref_6_oneOf_1_1_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_loaders_stylePostLoader_js_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_2_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_vue_loader_lib_index_js_vue_loader_options_Applications_HBuilderX_app_Contents_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_style_js_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
-
-/***/ 18:
+/* 18 */
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/admin/Documents/study/uniapp/skyonline/pages/index/index.vue?vue&type=style&index=0&lang=css& ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -402,23 +449,6 @@ __webpack_require__.r(__webpack_exports__);
     if(false) { var cssReload; }
   
 
-/***/ }),
-
-/***/ 63:
-/*!**********************************************************************************************!*\
-  !*** /Users/admin/Documents/study/uniapp/skyonline/main.js?{"page":"pages%2Findex%2Findex"} ***!
-  \**********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ 4);
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _index = _interopRequireDefault(__webpack_require__(/*! ./pages/index/index.vue */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_index.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
-
 /***/ })
-
-},[[63,"common/runtime","common/vendor"]]]);
+],[[11,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/index/index.js.map
