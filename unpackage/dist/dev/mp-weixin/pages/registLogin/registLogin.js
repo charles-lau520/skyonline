@@ -221,7 +221,14 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           this.msgType = 'error',
           this.message = "错误信息:用户名:test,密码:test",
-          this.$refs.popupMessage.open();
+          this.$refs.popupMessage.open(),
+          uni.showToast({
+            title: "用户名或密码错误!",
+            mask: false,
+            duration: 1500,
+            image: "../../static/icos/error.png" });
+
+
         }
       } else {
         this.msgType = 'error',

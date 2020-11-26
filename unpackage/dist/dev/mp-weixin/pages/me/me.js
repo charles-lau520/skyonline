@@ -130,7 +130,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
 //
 //
 //
@@ -172,17 +174,25 @@ var _default =
   },
   onShow: function onShow() {
     // 用户状态的切换
-    var userinfo = uni.getStorageSync("globalUser");
-    if (userinfo != null && userinfo != "" && userinfo != undefined) {
+    // 方法一：获取缓存中的登陆用户
+    // var userinfo = uni.getStorageSync("globalUser");
+    // if(userinfo != null && userinfo != "" && userinfo != undefined){
+    // 	this.userLogin = true;
+    // 	this.userinfo = userinfo;
+    // } else {
+    // 	this.userLogin = false;
+    // 	this.userinfo = {};
+    // }
+    // 方法二，通过main.js中定义方法来获取用户信息并判断
+    this.userinfo = this.globaluserinfo("globalUser");
+    if (this.userinfo != null) {
       this.userLogin = true;
-      this.userinfo = userinfo;
-    } else {
+    } else if (this.userinfo == null) {
       this.userLogin = false;
       this.userinfo = {};
     }
   },
   methods: {} };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

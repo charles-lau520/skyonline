@@ -73,10 +73,20 @@
 				globalUser : {}
 			}
 		},
+		// 监听页面初次渲染完成。注意如果渲染速度快，会在页面进入动画完成前触发
 		onReady:function(){
-			var userInfo = uni.getStorageSync("globalUser");
-			if(userInfo != null && userInfo != "" && userInfo != undefined){
+			var userInfo = this.globaluserinfo("globalUser");
+			if(userInfo != null ){
 				this.globalUser = userInfo;
+			}
+		},
+		// 监听页面显示。页面每次出现在屏幕上都触发，包括从下级页面点返回露出当前页面
+		onShow:function(){
+			var userInfo = this.globaluserinfo("globalUser");
+			if(userInfo == null ){
+				uni.switchTab({
+					url:"../me/me"
+				})
 			}
 		},
 		methods: {
@@ -93,10 +103,26 @@
 				
 			},
 			cleanStorage:function(){
-				
+				uni.clearStorageSync();
+				// 显示消息提示框
+				uni.showToast({
+					title:"清理缓存成功!",
+					mask:false,// 是否显示透明蒙层，防止触摸穿透，默认：false
+					duration:1500
+				})
 			},
 			logout:function(){
-				
+				var userinfo = this.globaluserinfo("globalUser");
+				if(userinfo != null){
+					uni.removeStorageSync("globalUser");
+					uni.switchTab({
+						url:"../me/me"
+					})
+				}else{
+					uni.switchTab({
+						url:"../me/me"
+					})
+				}
 			}
 			
 		}
